@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Lab4_5_TextRedactor.Resources">
+
+    <Style TargetType="Slider">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Number}" Value="72">
+                <Setter Property="Slider.Width" Value="400px" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

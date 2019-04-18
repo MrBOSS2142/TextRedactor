@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Lab4_5_TextRedactor.Resources"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--xmlns:v="clr-namespace:System;assembly=mscorlib">-->
+    <v:String x:Key="New">New</v:String>
+    <v:String x:Key="file">File</v:String>
+    <v:String x:Key="Edit">Edit</v:String>
+    <v:String x:Key="Copy">Copy</v:String>
+    <v:String x:Key="Paste">Paste</v:String>
+    <v:String x:Key="Open">Open</v:String>
+    <v:String x:Key="Save">Save</v:String>
+    <v:String x:Key="col1">Yellow</v:String>
+    <v:String x:Key="col2">Blue</v:String>
+    <v:String x:Key="col3">Black</v:String>
+    <v:String x:Key="col4">Red</v:String>
+    <v:String x:Key="col5">Green</v:String>
+    <v:String x:Key="simbol__label_count">Count of symbols:</v:String>
+    <v:String x:Key="word__label_count">Count of words:</v:String>
+    <v:String x:Key="color">Color</v:String>
+    <v:String x:Key="OpenLast">Open last files</v:String>
+    <v:String x:Key="StyleB">Style</v:String>
+    <v:String x:Key="Dark">Dark</v:String>
+    <v:String x:Key="Light">Light</v:String>
+    <v:String x:Key="Optim">Optimistic</v:String>
+    <v:String x:Key="Undo">Undo</v:String>
+    <v:String x:Key="Redo">Redo</v:String>
+    <v:String x:Key="History">History</v:String>
+</ResourceDictionary>

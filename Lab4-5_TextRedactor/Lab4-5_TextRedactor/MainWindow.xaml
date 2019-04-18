@@ -1,0 +1,98 @@
+﻿<Window x:Class="Lab4_5_TextRedactor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab4_5_TextRedactor"
+        mc:Ignorable="d"
+        Title="" x:Name="title" MinHeight="400px" Height="450" MinWidth="520px" Width="820px" Icon="E:\Учеба\2 курс\ООП\icons\text1.png">
+    <!--WindowStartupLocation="CenterScreen"-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="Dictionary" Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\LocalaizeResources.ru.xaml"/>
+                <ResourceDictionary x:Name="Design" Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\DesignDark.xaml"/>
+                <ResourceDictionary x:Name="EventT" Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Trigers\Trigers.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="White">
+        <!--ShowGridLines="True"-->
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="auto" MinHeight="24" />
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Height="24" VerticalAlignment="Top" Style="{DynamicResource Style}" Margin="0,0,-0.4,0">
+            <MenuItem Header="{DynamicResource file}" x:Name="file" FontSize="14" Style="{DynamicResource Style}">
+                <MenuItem Header="{DynamicResource New}" x:Name="New" Click="New_Click" Style="{DynamicResource Style}"></MenuItem>
+                <MenuItem Header="{DynamicResource Save}" x:Name="Save" Click="Save_Click" Style="{DynamicResource Style}"></MenuItem>
+                <MenuItem Header="{DynamicResource Open}" x:Name="Open" Click="Open_Click" Style="{DynamicResource Style}"></MenuItem>
+                <MenuItem Header="{DynamicResource OpenLast}" x:Name="OpenLast" Style="{DynamicResource Style}" Click="OpenLast_Click"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Edit}"  x:Name="Edit" FontSize="14" Style="{DynamicResource Style}">
+                <MenuItem Header="{DynamicResource Copy}" x:Name="Copy" Click="Copy_Click" Style="{DynamicResource Style}"></MenuItem>
+                <MenuItem Header="{DynamicResource Paste}" x:Name="Paste" Click="Paste_Click" Style="{DynamicResource Style}"></MenuItem>
+                <MenuItem Header="{DynamicResource Undo}" x:Name="Undo" Style="{DynamicResource Style}" CommandTarget="{Binding ElementName=DocBox}" Command="Undo"></MenuItem>
+                <MenuItem Header="{DynamicResource Redo}" x:Name="Redo" Style="{DynamicResource Style}" CommandTarget="{Binding ElementName=DocBox}" Command="Redo"></MenuItem>
+            </MenuItem>
+            <MenuItem  Header="{DynamicResource StyleB}" FontSize="14" Style="{DynamicResource Style}">
+                <MenuItem Header="{DynamicResource Dark}" x:Name="Dark" Style="{DynamicResource Style}" Click="Dark_Click"/>
+                <MenuItem Header="{DynamicResource Light}" x:Name="Light" Style="{DynamicResource Style}"  Click="Light_Click"/>
+                <MenuItem Header="{DynamicResource Optim}" x:Name="Optim" Style="{DynamicResource Style}"  Click="Optim_Click"/>
+            </MenuItem>
+            <MenuItem Grid.Column="1" Name="New_but" Click="New_Click" Width="23">
+                <MenuItem.Icon>
+                    <Image Source="E:\Учеба\2 курс\ООП\icons\new_file.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Grid.Column="1" Name="Save_but" Click="Save_Click" Width="23">
+                <MenuItem.Icon>
+                    <Image Source="E:\Учеба\2 курс\ООП\icons\save.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Name="Open_but" Click="Open_Click" Width="23">
+                <MenuItem.Icon>
+                    <Image Source="E:\Учеба\2 курс\ООП\icons\folder_open.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <ToggleButton Width="35" Height="20" Name="Italic" FontStyle="Italic" Checked="ToggleButton_Checked_Italic" Unchecked="ToggleButton_Unchecked_Italic" >I</ToggleButton>
+            <ToggleButton Width="35" Height="20" Name="Bold" FontWeight="Bold" Checked="ToggleButton_Checked_Bold" Unchecked="ToggleButton_Unchecked_Bold">B</ToggleButton>
+            <ToggleButton Width="35" Height="20" Name="Underline" Checked="ToggleButton_Checked_Underline" Unchecked="ToggleButton_Unchecked_Underline">
+                <Underline>U</Underline>
+            </ToggleButton>
+            <ComboBox Width="100" x:Name="FontType" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" SelectionChanged="FontType_SelectionChanged" Foreground="Black" />
+            <Slider Width="70" Minimum="8" Maximum="72" AutoToolTipPlacement="BottomRight" Name="slider1" Style="{DynamicResource Style}" ValueChanged="slider_size_ValueChanged" Value="12"/>
+            <MenuItem Header="{DynamicResource color}" Width="45px" IsEnabled="False"   x:Name="color" FontSize="14" Style="{DynamicResource Style}"  />
+            <ComboBox Width="100" Name="fontcolor" SelectionChanged="fontcolor_SelectionChanged">
+                <ComboBoxItem Name="col1"  Content="{DynamicResource col1}" Foreground="#FFEACA07"></ComboBoxItem>
+                <ComboBoxItem Name="col2" Content="{DynamicResource col2}" Foreground="#FF0410FF"></ComboBoxItem>
+                <ComboBoxItem Name="col3" Content="{DynamicResource col3}" Foreground="Black"></ComboBoxItem>
+                <ComboBoxItem Name="col4" Content="{DynamicResource col4}" Foreground="#FFFC0202"></ComboBoxItem>
+                <ComboBoxItem Name="col5" Content="{DynamicResource col5}" Foreground="#FF21F30A"></ComboBoxItem>
+            </ComboBox>
+            <MenuItem x:Name="English" Width="25" Click="English_Click"  HorizontalAlignment="Right">
+                <MenuItem.Icon>
+                    <Image Source="E:\Учеба\2 курс\ООП\icons\en.png" Margin="2"  />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="Russia" Width="25" HorizontalAlignment="Right" Click="Russia_Click">
+                <MenuItem.Icon>
+                    <Image Source="E:\Учеба\2 курс\ООП\icons\ru.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <RichTextBox x:Name="DocBox" TextChanged="DocBox_TextChanged" AllowDrop="True" VerticalScrollBarVisibility="Visible" Grid.Row="1" Grid.RowSpan="2" DragOver="DocBox_DragOver"/>
+        <ToolBar VerticalAlignment="Bottom" Grid.Row="2" Height="30">
+            <Label Name="simbols_label_count">Количество букв</Label>
+            <Label Name="simbols_count" Content="0" Height="26" Margin="0, 0,0,-0.4" VerticalAlignment="Top"></Label>
+            <Label Name="word__label_count">Количестов слов</Label>
+            <Label Name="word_count" Content="0"></Label>
+            <Button Content="{DynamicResource History}" Background="#5A75FF" Style="{DynamicResource StyleBut}"/>
+            <ComboBox Width="auto" MinWidth="120" Name="LastFiles" SelectionChanged="LastFileOp"></ComboBox>
+        </ToolBar>
+    </Grid>
+</Window>

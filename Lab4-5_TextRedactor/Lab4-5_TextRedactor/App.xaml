@@ -1,0 +1,17 @@
+﻿<Application x:Class="Lab4_5_TextRedactor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Lab4_5_TextRedactor"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\LocalaizeResources.xaml"/>
+                <ResourceDictionary Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\LocalaizeResources.ru.xaml"/>
+                <ResourceDictionary Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\DesignDark.xaml"/>
+                <ResourceDictionary Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\DesignLight.xaml"/>
+                <ResourceDictionary Source = "E:\Учеба\2 курс\ООП\OOP2\Lab4-5_TextRedactor\Lab4-5_TextRedactor\Resources\DesignOptim.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+    </Application.Resources>
+</Application>

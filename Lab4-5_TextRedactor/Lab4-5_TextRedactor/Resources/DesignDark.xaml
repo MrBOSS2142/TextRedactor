@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Lab4_5_TextRedactor.Resources">
+
+    <Style x:Key="Style">
+        <Setter Property="Control.Background" Value="#FF322A2A" />
+        <Setter Property="Control.Foreground" Value="#FFCACACA" />
+        <Setter Property="Control.FontFamily" Value="Calibri"/>
+
+        <Style.Triggers>
+            <Trigger Property="MenuItem.IsMouseOver" Value="True">
+                <Setter Property="MenuItem.Foreground" Value="Black" />
+            </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="MenuItem.IsMouseOver" Value="True"/>
+                    <Condition Property="MenuItem.IsPressed" Value="True"/>
+                </MultiTrigger.Conditions>
+
+                <MultiTrigger.Setters>
+                    <Setter Property="MenuItem.Background" Value="Red" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
